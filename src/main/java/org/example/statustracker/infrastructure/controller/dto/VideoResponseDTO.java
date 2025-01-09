@@ -3,7 +3,8 @@ package org.example.statustracker.infrastructure.controller.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
-import org.example.statustracker.domain.entity.VideoStatus;
+import org.example.statustracker.domain.entity.enums.VideoStatus;
+
 
 @Data
 public class VideoResponseDTO {

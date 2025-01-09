@@ -1,11 +1,7 @@
 package org.example.statustracker.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import org.example.statustracker.domain.entity.VideoStatus;
+import org.example.statustracker.domain.entity.enums.VideoStatus;
 
 @Table(name = "video")
 @Entity
