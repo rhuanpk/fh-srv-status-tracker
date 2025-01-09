@@ -6,7 +6,6 @@ import org.example.statustracker.domain.service.VideoService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GetVideosUseCase {
 
@@ -18,12 +17,11 @@ public class GetVideosUseCase {
 
     public List<VideoResponseDTO> execute(String userName) {
         List<Video> videos = videoService.findByUserName(userName);
-        return videos.stream().map(video -> VideoResponseDTO.builder()
-                .id(video.getId())
-                .url(video.getUrl())
-                .userName(video.getUserName())
-                .userMail(video.getUserMail())
-                .status(video.getStatus())
-                .build()).collect(Collectors.toList());
+        return videos.stream().map(video -> new VideoResponseDTO(video.getId(),
+                video.getUrl(),
+                video.getUserName(),
+                video.getUserMail(),
+                video.getStatus()))
+                .toList();
     }
 }

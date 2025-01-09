@@ -3,13 +3,12 @@ package org.example.statustracker.infrastructure.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.statustracker.domain.entity.VideoStatus;
 
-@Data
+@Table(name = "video")
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class VideoEntity {
 
     @Id
@@ -27,4 +26,55 @@ public class VideoEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private VideoStatus status;
+
+    public VideoEntity(String id, String url, String userName, String userMail, VideoStatus status) {
+        this.id = id;
+        this.url = url;
+        this.userName = userName;
+        this.userMail = userMail;
+        this.status = status;
+    }
+
+    public VideoEntity() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserMail() {
+        return userMail;
+    }
+
+    public void setUserMail(String userMail) {
+        this.userMail = userMail;
+    }
+
+    public VideoStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(VideoStatus status) {
+        this.status = status;
+    }
 }
