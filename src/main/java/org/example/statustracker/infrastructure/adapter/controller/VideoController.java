@@ -1,9 +1,9 @@
 package org.example.statustracker.infrastructure.adapter.controller;
 
 
+import io.swagger.v3.oas.annotations.Parameter;
 import org.example.statustracker.application.usecase.GetVideosUseCase;
 import org.example.statustracker.application.usecase.dto.VideoResponseDTO;
-import org.example.statustracker.infrastructure.exception.handler.BusinessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +25,7 @@ public class VideoController {
 
 
     @GetMapping("/{userName}")
-    public ResponseEntity<List<VideoResponseDTO>> getVideosByUserName(@PathVariable String userName) {
+    public ResponseEntity<List<VideoResponseDTO>> getVideosByUserName(@Parameter(description = "O nome de usuário para filtrar os vídeos") @PathVariable String userName) {
         List<VideoResponseDTO> videos = getVideosUseCase.execute(userName);
         return ResponseEntity.ok(videos);
     }
