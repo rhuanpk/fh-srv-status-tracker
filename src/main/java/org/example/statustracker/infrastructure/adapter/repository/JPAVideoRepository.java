@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface JPAVideoRepository extends JpaRepository<VideoEntity, UUID> {
+public interface JPAVideoRepository extends JpaRepository<VideoEntity, String> {
 
     List<VideoEntity> findByUserName(String userName);
 

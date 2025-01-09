@@ -4,7 +4,6 @@ import org.example.statustracker.application.usecase.dto.VideoResponseDTO;
 import org.example.statustracker.domain.entity.Video;
 import org.example.statustracker.domain.service.VideoService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GetVideosUseCase {
