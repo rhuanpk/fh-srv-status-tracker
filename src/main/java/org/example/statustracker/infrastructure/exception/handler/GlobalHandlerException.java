@@ -35,7 +35,7 @@ public class GlobalHandlerException {
     public ResponseEntity<ErrorResponseDTO> handleGenericException(Exception ex) {
         ErrorResponseDTO errorResponse = new ErrorResponseDTO(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.",
+                ex.getMessage(),
                 LocalDateTime.now()
         );
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
