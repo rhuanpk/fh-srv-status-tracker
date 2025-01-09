@@ -1,5 +1,6 @@
 package org.example.statustracker.domain.entity;
 
+import org.example.statustracker.domain.entity.enums.VideoStatus;
 import org.example.statustracker.domain.exception.BusinessException;
 
 public class Video {
