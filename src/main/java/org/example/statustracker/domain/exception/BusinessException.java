@@ -1,4 +1,4 @@
-package org.example.statustracker.infrastructure.exception.handler;
+package org.example.statustracker.domain.exception;
 
 public class BusinessException extends RuntimeException {
 

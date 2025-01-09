@@ -1,11 +1,9 @@
-package org.example.statustracker.application.usecase.dto;
+package org.example.statustracker.infrastructure.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.example.statustracker.domain.entity.VideoStatus;
-
-import java.util.UUID;
 
 @Data
 public class VideoResponseDTO {

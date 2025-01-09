@@ -1,11 +1,11 @@
-package org.example.statustracker.infrastructure.adapter.mapper;
+package org.example.statustracker.infrastructure.gateways;
 
 import org.example.statustracker.domain.entity.Video;
 import org.example.statustracker.infrastructure.entity.VideoEntity;
 
-public class VideoMapper {
+public class VideoEntityMapper {
 
-    public static Video toDomain(VideoEntity videoEntity) {
+    public Video toDomain(VideoEntity videoEntity) {
         return new Video(videoEntity.getId(),
                 videoEntity.getUrl(),
                 videoEntity.getUserName(),
@@ -13,7 +13,7 @@ public class VideoMapper {
                 videoEntity.getStatus());
     }
 
-    public static VideoEntity toEntity(Video video) {
+    public VideoEntity toEntity(Video video) {
         return new VideoEntity(video.getId(),
                 video.getUrl(),
                 video.getUserName(),

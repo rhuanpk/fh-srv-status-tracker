@@ -1,6 +1,6 @@
 package org.example.statustracker.domain.entity;
 
-import org.example.statustracker.infrastructure.exception.handler.BusinessException;
+import org.example.statustracker.domain.exception.BusinessException;
 
 public class Video {
 

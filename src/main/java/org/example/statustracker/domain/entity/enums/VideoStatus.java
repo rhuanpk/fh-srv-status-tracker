@@ -1,4 +1,4 @@
-package org.example.statustracker.domain.entity;
+package org.example.statustracker.domain.entity.enums;
 
 public enum VideoStatus {
 
