@@ -4,6 +4,7 @@ import org.example.statustracker.adapter.entity.VideoEntity;
 import org.example.statustracker.adapter.mapper.VideoEntityMapper;
 import org.example.statustracker.core.domain.Video;
 import org.example.statustracker.core.domain.applications.ports.VideoRepositoryPort;
+import org.example.statustracker.core.services.exception.EntityNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -28,5 +29,23 @@ public class VideoRepositoryAdapter implements VideoRepositoryPort {
             videos.add(videoEntityMapper.toDomain(videoEntity));
         }
         return videos;
+    }
+
+    @Override
+    public void save(Video video) {
+        VideoEntity videoEntity = videoEntityMapper.toEntity(video);
+        videoRepository.save(videoEntity);
+    }
+
+    @Override
+    public void updateVideo(Video video) {
+        VideoEntity videoEntity = videoRepository.findByUrl(video.getUrl());
+
+        if(videoEntity == null) {
+            throw new EntityNotFoundException("Vídeo não encontrado");
+        }
+
+        videoEntity.setStatus(video.getStatus());
+        videoRepository.save(videoEntity);
     }
 }
