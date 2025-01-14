@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.example.statustracker.core.domain.enums.VideoStatus;
 
-public class VideoResponseDTO {
+public class VideoRequestDTO {
 
     @JsonProperty("id")
     @Schema(example = "123e4567-e89b-12d3-a456-426614174000")
@@ -26,11 +26,51 @@ public class VideoResponseDTO {
     @Schema(example = "EM_PROCESSAMENTO")
     private VideoStatus status;
 
-    public VideoResponseDTO(String id, String url, String userName, String userMail, VideoStatus status) {
+    public VideoRequestDTO(String id, String url, String userName, String userMail, VideoStatus status) {
         this.id = id;
         this.url = url;
         this.userName = userName;
         this.userMail = userMail;
+        this.status = status;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserMail() {
+        return userMail;
+    }
+
+    public void setUserMail(String userMail) {
+        this.userMail = userMail;
+    }
+
+    public VideoStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(VideoStatus status) {
         this.status = status;
     }
 }

@@ -7,4 +7,8 @@ import java.util.List;
 public interface VideoRepositoryPort {
 
     List<Video> findByUserName(String userName);
+
+    void save(Video video);
+
+    void updateVideo(Video video);
 }

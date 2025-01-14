@@ -10,4 +10,5 @@ public interface VideoRepository extends JpaRepository <VideoEntity, String> {
 
     List<VideoEntity> findByUserName(String userName);
 
+    VideoEntity findByUrl(String url);
 }

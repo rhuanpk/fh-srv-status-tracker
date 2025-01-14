@@ -6,7 +6,7 @@ import org.example.statustracker.core.domain.Video;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class VideoDTOMapper {
+public class VideoResponseDTOMapper {
 
     public VideoResponseDTO toVideoResponseDTO(Video video) {
         return new VideoResponseDTO(video.getId(),
