@@ -8,7 +8,7 @@ public interface VideoRepositoryPort {
 
     List<Video> findByUserName(String userName);
 
-    void save(Video video);
+    void create(Video video);
 
-    void updateVideo(Video video);
+    void updateStatus(Video video);
 }

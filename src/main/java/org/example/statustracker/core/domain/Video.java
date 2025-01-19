@@ -9,20 +9,18 @@ public class Video {
 
     private String url;
 
-    private String userName;
-
-    private String userMail;
+    private String username;
 
     private VideoStatus status;
 
     public Video() {
     }
 
-    public Video(String id, String url, String userName, String userMail, VideoStatus status) {
+    public Video(String id, String url, String username, VideoStatus status) {
         this.id = id;
         this.url = url;
-        this.userName = userName;
-        this.userMail = userMail;
+        this.username = username;
+
         this.status = status;
     }
 
@@ -42,26 +40,15 @@ public class Video {
         this.url = url;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        if (userName == null || userName.isBlank()) {
+    public void setUsername(String username) {
+        if (username == null || username.isBlank()) {
             throw new BusinessException("Usuário não pode ser nulo");
         }
-        this.userName = userName;
-    }
-
-    public String getUserMail() {
-        return userMail;
-    }
-
-    public void setUserMail(String userMail) {
-        if (userMail == null || userMail.isBlank()) {
-            throw new BusinessException("Email não pode ser nulo");
-        }
-        this.userMail = userMail;
+        this.username = username;
     }
 
     public VideoStatus getStatus() {

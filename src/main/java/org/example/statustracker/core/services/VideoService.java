@@ -1,11 +1,8 @@
 package org.example.statustracker.core.services;
 
-import org.example.statustracker.adapter.controller.dto.VideoResponseDTO;
 import org.example.statustracker.core.domain.Video;
 import org.example.statustracker.core.domain.applications.ports.VideoRepositoryPort;
 import org.example.statustracker.core.domain.applications.ports.VideoServicePort;
-import org.example.statustracker.adapter.repositories.VideoRepository;
-import org.example.statustracker.core.domain.enums.VideoStatus;
 import org.example.statustracker.core.services.exception.BusinessException;
 
 import java.util.List;
@@ -25,19 +22,19 @@ public class VideoService implements VideoServicePort {
     }
 
     @Override
-    public void createVideo(Video video) {
-        videoRepositoryPort.save(video);
+    public void createStatus(Video video) {
+        videoRepositoryPort.create(video);
     }
 
     @Override
-    public void updateVideo(Video video) {
+    public void updateStatus(Video video) {
         if(video.getUrl() == null) {
             throw new BusinessException("URL é obrigatória");
         }
 
         if(video.getStatus() == null) {
-            throw new IllegalArgumentException("Status é obrigatório");
+            throw new BusinessException("Status é obrigatório");
         }
-        videoRepositoryPort.updateVideo(video);
+        videoRepositoryPort.updateStatus(video);
     }
 }

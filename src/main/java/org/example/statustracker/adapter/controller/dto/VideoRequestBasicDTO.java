@@ -6,15 +6,11 @@ import org.example.statustracker.core.domain.Video;
 import org.example.statustracker.core.domain.enums.VideoStatus;
 import org.modelmapper.ModelMapper;
 
-public class VideoRequestDTO {
+public class VideoRequestBasicDTO {
 
     @JsonProperty("url")
     @Schema(example = "https://www.youtube.com/watch?v=123456")
     private String url;
-
-    @JsonProperty("username")
-    @Schema(example = "user@email.com")
-    private String username;
 
     @JsonProperty("status")
     @Schema(example = "EM_PROCESSAMENTO")
@@ -36,15 +32,12 @@ public class VideoRequestDTO {
         this.status = status;
     }
 
-    public String getUsername() {
-        return username;
+    public VideoRequestBasicDTO(String url, VideoStatus status) {
+        this.url = url;
+        this.status = status;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public static Video toDomain(ModelMapper modelMapper, VideoRequestDTO videoRequestDTO) {
-        return modelMapper.map(videoRequestDTO, Video.class);
+    public static Video toDomain(ModelMapper modelMapper, VideoRequestBasicDTO videoRequestBasicDTO) {
+        return modelMapper.map(videoRequestBasicDTO, Video.class);
     }
 }

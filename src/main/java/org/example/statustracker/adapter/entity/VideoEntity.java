@@ -13,21 +13,18 @@ public class VideoEntity {
     @Column(nullable = false)
     private String url;
 
-    @Column(nullable = false)
-    private String userName;
 
     @Column(nullable = false)
-    private String userMail;
+    private String username;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private VideoStatus status;
 
-    public VideoEntity(String id, String url, String userName, String userMail, VideoStatus status) {
+    public VideoEntity(String id, String url, String username, VideoStatus status) {
         this.id = id;
         this.url = url;
-        this.userName = userName;
-        this.userMail = userMail;
+        this.username = username;
         this.status = status;
     }
 
@@ -42,35 +39,27 @@ public class VideoEntity {
         this.id = id;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserMail() {
-        return userMail;
-    }
-
-    public void setUserMail(String userMail) {
-        this.userMail = userMail;
-    }
-
     public VideoStatus getStatus() {
         return status;
     }
 
     public void setStatus(VideoStatus status) {
         this.status = status;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

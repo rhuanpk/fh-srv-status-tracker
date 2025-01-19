@@ -8,16 +8,14 @@ public class VideoEntityMapper {
     public Video toDomain(VideoEntity videoEntity) {
         return new Video(videoEntity.getId(),
                 videoEntity.getUrl(),
-                videoEntity.getUserName(),
-                videoEntity.getUserMail(),
+                videoEntity.getUsername(),
                 videoEntity.getStatus());
     }
 
     public VideoEntity toEntity(Video video) {
         return new VideoEntity(video.getId(),
                 video.getUrl(),
-                video.getUserName(),
-                video.getUserMail(),
+                video.getUsername(),
                 video.getStatus());
     }
 }

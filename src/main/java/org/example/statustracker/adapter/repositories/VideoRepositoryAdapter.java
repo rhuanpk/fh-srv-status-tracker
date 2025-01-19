@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class VideoRepositoryAdapter implements VideoRepositoryPort {
@@ -23,27 +24,23 @@ public class VideoRepositoryAdapter implements VideoRepositoryPort {
 
     @Override
     public List<Video> findByUserName(String userName) {
-        List<VideoEntity> videosEntities = videoRepository.findByUserName(userName);
-        List<Video> videos = new ArrayList<>();
-        for(VideoEntity videoEntity : videosEntities) {
-            videos.add(videoEntityMapper.toDomain(videoEntity));
-        }
-        return videos;
+        return videoRepository.findByUsername(userName)
+                .stream()
+                .map(videoEntityMapper::toDomain)
+                .toList();
     }
 
     @Override
-    public void save(Video video) {
+    public void create(Video video) {
+        video.setId(UUID.randomUUID().toString());
         VideoEntity videoEntity = videoEntityMapper.toEntity(video);
         videoRepository.save(videoEntity);
     }
 
     @Override
-    public void updateVideo(Video video) {
-        VideoEntity videoEntity = videoRepository.findByUrl(video.getUrl());
-
-        if(videoEntity == null) {
-            throw new EntityNotFoundException("Vídeo não encontrado");
-        }
+    public void updateStatus(Video video) {
+        VideoEntity videoEntity = videoRepository.findByUrl(video.getUrl())
+                .orElseThrow(() -> new EntityNotFoundException("Vídeo não encontrado"));
 
         videoEntity.setStatus(video.getStatus());
         videoRepository.save(videoEntity);

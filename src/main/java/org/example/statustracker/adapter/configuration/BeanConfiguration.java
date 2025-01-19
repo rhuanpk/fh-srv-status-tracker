@@ -1,11 +1,10 @@
 package org.example.statustracker.adapter.configuration;
 
 import org.example.statustracker.adapter.mapper.VideoEntityMapper;
-import org.example.statustracker.adapter.mapper.VideoRequestDTOMapper;
-import org.example.statustracker.adapter.mapper.VideoResponseDTOMapper;
 import org.example.statustracker.core.domain.applications.ports.VideoRepositoryPort;
 import org.example.statustracker.core.domain.applications.ports.VideoServicePort;
 import org.example.statustracker.core.services.VideoService;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,13 +17,8 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public VideoRequestDTOMapper videoRequestDTOMapper() {
-        return new VideoRequestDTOMapper();
-    }
-
-    @Bean
-    public VideoResponseDTOMapper videoResponseDTOMapper() {
-        return new VideoResponseDTOMapper();
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 
     @Bean

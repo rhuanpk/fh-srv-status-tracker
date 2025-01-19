@@ -2,7 +2,12 @@ package org.example.statustracker.adapter.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.example.statustracker.core.domain.Video;
 import org.example.statustracker.core.domain.enums.VideoStatus;
+import org.modelmapper.ModelMapper;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class VideoResponseDTO {
 
@@ -14,23 +19,61 @@ public class VideoResponseDTO {
     @Schema(example = "https://www.youtube.com/watch?v=123456")
     private String url;
 
-    @JsonProperty("userName")
-    @Schema(example = "user123")
-    private String userName;
-
-    @JsonProperty("userMail")
+    @JsonProperty("username")
     @Schema(example = "user@email.com")
-    private String userMail;
+    private String username;
 
     @JsonProperty("status")
     @Schema(example = "EM_PROCESSAMENTO")
     private VideoStatus status;
 
-    public VideoResponseDTO(String id, String url, String userName, String userMail, VideoStatus status) {
+    public VideoResponseDTO(String id, String url, String username, VideoStatus status) {
         this.id = id;
         this.url = url;
-        this.userName = userName;
-        this.userMail = userMail;
+        this.username = username;
         this.status = status;
+    }
+
+    public VideoResponseDTO(){
+    }
+
+    public VideoStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(VideoStatus status) {
+        this.status = status;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static VideoResponseDTO toDTO(ModelMapper modelMapper, Video video){
+       return modelMapper.map(video, VideoResponseDTO.class);
+    }
+
+    public static List<VideoResponseDTO> toDTOList(ModelMapper modelMapper, List<Video> videos){
+        return videos.stream().map(video -> toDTO(modelMapper, video)).collect(Collectors.toList());
     }
 }
