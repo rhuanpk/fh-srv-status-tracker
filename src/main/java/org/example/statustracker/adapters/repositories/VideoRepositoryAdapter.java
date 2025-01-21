@@ -31,7 +31,6 @@ public class VideoRepositoryAdapter implements VideoRepositoryPort {
 
     @Override
     public void create(Video video) {
-        video.setId(UUID.randomUUID().toString());
         VideoEntity videoEntity = videoEntityMapper.toEntity(video);
         videoRepository.save(videoEntity);
     }
