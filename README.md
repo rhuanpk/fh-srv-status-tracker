@@ -2,6 +2,19 @@
 
 Este projeto é um rastreador de status de vídeos, desenvolvido com Spring Boot. Ele permite criar, atualizar e buscar status de vídeos associados a um usuário específico. O projeto utiliza um banco de dados MySQL para armazenar os dados e está configurado para ser executado em um ambiente Docker.
 
+# Workflow de CI/CD
+
+Este projeto utiliza o GitHub Actions para automação do pipeline de CI/CD. O workflow realiza as seguintes etapas:
+
+1 - Compilação e Testes: O código é compilado e os testes são executados utilizando o Maven.
+2 - Análise de Qualidade de Código com SonarQube: O projeto é analisado automaticamente pelo SonarCloud.
+3 - Criação e Envio da Imagem Docker: O código é empacotado em uma imagem Docker e enviada para o Docker Hub.
+Para mais detalhes, consulte o arquivo .github/workflows/build.yml.
+
+# SonarCloud
+
+A análise de qualidade do código é realizada utilizando SonarCloud. O relatório de análise está disponível publicamente. Você pode visualizar os detalhes de qualidade, cobertura de testes e outros insights no seguinte link: https://sonarcloud.io/project/overview?id=brunocamposousa_fh-srv-status-tracker
+
 # Documentação do VideoController
 
 O `VideoController` é responsável por gerenciar as requisições relacionadas aos vídeos. Ele possui os seguintes endpoints:
