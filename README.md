@@ -129,3 +129,5 @@ As seguintes variáveis de ambiente são necessárias para configurar o banco de
 # Swagger
 
 O projeto utiliza Swagger para documentar a API. Para acessar a documentação Swagger, navegue até `http://localhost:8080/swagger-ui.html` após iniciar a aplicação.
+
+.
